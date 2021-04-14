@@ -56,7 +56,7 @@ class PersonFollower(object):
 
         self.cv_pub.publish(self.velocities)
 
-    # Runs the program until a shutdown command is given
+    # Runs the bot until a shutdown command is given
     def run(self):
         rospy.spin()
 
