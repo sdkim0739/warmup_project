@@ -44,8 +44,13 @@ The wall follower program makes Turtlebot3 drive along a wall from a fixed dista
 ### Demonstration
 ![GIF of Turtlebot3 sort of following the walls inside a square room](gifs/wall_follower.gif)
 
+Note: For some reason, `ffmpeg` wouldn't generate the GIF for the Wall Follower MP4 (found in the gifs/ folder). There seems to be no specific error returned, even; the process just kills itself suddenly. The output is below:
+`Killed    0 fps=0.0 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x`
+
+
 ## Challenges
-I really struggled at first with figuring out how each value returned from `/scan` worked. It just wasn't clicking for some reason, so at first, I could barely even get the robot to move towards an object at all, let alone follow one. I knew what the `ranges[]` array represented, but that was pretty much it. At one point, I was trying to use attributes like `time_increment` or `range_min` in my code without realizing that they weren't significant to my task at hand. After that roadblock, I had a difficult time getting the robot to follow the object in a relatively straight path without angular velocity. Because the angular and linear velocities are handled in the same callback function that is called repeatedly, I had to figure out how to get the robot to use angular velocity only at certain positions, and same for the linear velocity. 
+I really struggled at first with figuring out how each value returned from `/scan` worked. It just wasn't clicking for some reason, so at first, I could barely even get the robot to move towards an object at all, let alone follow one. I knew what the `ranges[]` array represented, but that was pretty much it. At one point, I was trying to use attributes like `time_increment` or `range_min` in my code without realizing that they weren't significant to my task at hand. After that roadblock, I had a difficult time getting the robot to follow the object in a relatively straight path without angular velocity. Because the angular and linear velocities are handled in the same callback function that is called repeatedly, I had to figure out how to get the robot to use angular velocity only at certain positions, and same for the linear velocity.
+
 My other great challenge was trying to get the robot to drive at a fixed distance from the wall for Wall Follower. I believe it's because my code doesn't quite rotate the robot correctly so that its side is parallel to the wall. I redid this code maybe 10-15 times, and unfortunately, I still wasn't able to fix this in time, so my Wall Follower doesn't quite work as the project specifies it should. It might be something that I'm fundamentally misunderstanding about the robot's sensor measurements or movement, too, but I can't articulate what that would be.
 
 ## Future Work
